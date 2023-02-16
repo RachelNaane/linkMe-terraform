@@ -29,3 +29,8 @@ variable "nodes_min_size" {
     type = number
     default = 1
 }
+
+variable "nodes_type" {
+    type = string
+    default = "t3a.xlarge"
+}

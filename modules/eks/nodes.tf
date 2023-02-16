@@ -36,7 +36,7 @@ resource "aws_eks_node_group" "nodes-group" {
   subnet_ids = var.nodes_subnets
 
   capacity_type  = "ON_DEMAND"
-  instance_types = ["t3a.small"]
+  instance_types = [var.nodes_type]
 
   scaling_config {
     desired_size = var.nodes_desired_size

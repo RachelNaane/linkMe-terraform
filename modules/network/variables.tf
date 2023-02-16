@@ -4,22 +4,16 @@ variable "env_name" {
 
 variable "vpc_cidr_block" {
     type = string
-    default = "10.0.0.0/24"
+    default = "10.0.0.0/20"
 }
 
 variable "public_subnets_cidr_blocks_and_AZs" {
     type = map(string)
     default = {
-        "10.0.0.0/28" = "eu-west-2a"
-        "10.0.0.16/28" = "eu-west-2b"
-    }
-}
-
-variable "private_subnets_cidr_blocks_and_AZs" {
-    type = map(string)
-    default = {
-        "10.0.0.32/28" = "eu-west-2a"
-        "10.0.0.48/28" = "eu-west-2b"
+        "10.0.0.0/22" = "eu-west-2a"
+        "10.0.4.0/22" = "eu-west-2b"
+        "10.0.8.0/22" = "eu-west-2a"
+        "10.0.12.0/22" = "eu-west-2b"
     }
 }
 

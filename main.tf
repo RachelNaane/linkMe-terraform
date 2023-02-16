@@ -28,7 +28,7 @@ module "eks" {
   source = "./modules/eks"
 
   env_name = terraform.workspace
-  nodes_subnets = module.network.nodes_subnets
+  nodes_subnets = module.network.cluster_subnets
   cluster_subnets = module.network.cluster_subnets
 }
 
