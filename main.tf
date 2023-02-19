@@ -22,6 +22,10 @@ module "network" {
   source = "./modules/network"
 
   env_name = terraform.workspace
+  vpc_cidr_block = var.vpc_cidr_block
+  public_subnets_cidr_blocks_and_AZs = var.public_subnets_cidr_blocks_and_AZs
+  map_public_ip_on_launch=var.map_public_ip_on_launch
+  cluster_name=var.cluster_name
 }
 
 module "eks" {
@@ -30,6 +34,11 @@ module "eks" {
   env_name = terraform.workspace
   nodes_subnets = module.network.cluster_subnets
   cluster_subnets = module.network.cluster_subnets
+  cluster_name = var.cluster_name
+  nodes_desired_size = var.nodes_desired_size
+  nodes_max_size = var.nodes_max_size
+  nodes_min_size = var.nodes_min_size
+  nodes_type = var.nodes_type
 }
 
 module "argocd" {
@@ -37,4 +46,5 @@ module "argocd" {
 
   env_name = terraform.workspace
   cluster = module.eks.cluster
+  region = "eu-west-2"
 }
