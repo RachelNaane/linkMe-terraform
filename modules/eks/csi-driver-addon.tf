@@ -1,3 +1,4 @@
+//csi_driver=container storage interface, creates ebs-sci-controller and ebs-sci-node to assign volumes to pods
 resource "aws_eks_addon" "csi_driver" {
   cluster_name             = aws_eks_cluster.cluster.name
   addon_name               = "aws-ebs-csi-driver"
@@ -5,7 +6,6 @@ resource "aws_eks_addon" "csi_driver" {
   service_account_role_arn = aws_iam_role.eks_ebs_csi_driver.arn
 }
 
-//iam role for csi driver
 data "aws_iam_policy_document" "csi" {
   statement {
     actions = ["sts:AssumeRoleWithWebIdentity"]

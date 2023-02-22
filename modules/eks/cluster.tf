@@ -17,6 +17,7 @@ resource "aws_iam_role" "eks" {
 POLICY
 }
 
+//policy to manage EKS cluster-creating/deleting worker nodes, managing the Kubernetes API server, configuring CloudWatch metrics and logs.
 resource "aws_iam_role_policy_attachment" "AmazonEKSClusterPolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
   role       = aws_iam_role.eks.name

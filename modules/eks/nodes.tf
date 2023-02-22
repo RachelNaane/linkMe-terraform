@@ -13,16 +13,19 @@ resource "aws_iam_role" "nodes" {
   })
 }
 
+//policy that grant access to ec2 and eks
 resource "aws_iam_role_policy_attachment" "AmazonEKSWorkerNodePolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
   role       = aws_iam_role.nodes.name
 }
 
+//policy for managing networking and configuration for pods
 resource "aws_iam_role_policy_attachment" "AmazonEKS_CNI_Policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
   role       = aws_iam_role.nodes.name
 }
 
+//policy to download and run docker images from ECR
 resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
   role       = aws_iam_role.nodes.name
@@ -43,7 +46,7 @@ resource "aws_eks_node_group" "nodes-group" {
     max_size     = var.nodes_max_size
     min_size     = var.nodes_desired_size
   }
-
+  //maximum number of unavailable nodes during node group update
   update_config {
     max_unavailable = 1
   }
