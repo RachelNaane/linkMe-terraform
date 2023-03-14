@@ -13,9 +13,9 @@ Tools & Technologies:
 * Monitoring: Prometheus & Grafana
 
 The full project consists of 4 github repositories:
-* The app source code - you are here:)
+* The app source code - https://github.com/RachelNaane/linkMe
 * The Jenkinsfile repo - https://github.com/RachelNaane/linkMe-jenkins
-* The infrastructure source code - https://github.com/RachelNaane/linkMe-terraform
+* The infrastructure source code - you are here:)
 * The kubernetes source code - https://github.com/RachelNaane/linkMe-gitops
 
 ## Architecture
