@@ -17,4 +17,4 @@ To deploy this project run
   terraform apply -var-file=”prod.tfvars”
 ```
 
-Terraform will create an EKS cluster with argocd that can be configured to apply the LinkMe app (or any ather app you wish) to the cluster. 
+Terraform will create an EKS cluster with argocd, that can be configured to apply the LinkMe app (or any other app you wish) to the cluster. 
